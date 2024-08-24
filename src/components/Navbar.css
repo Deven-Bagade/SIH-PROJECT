@@ -9,7 +9,7 @@
     top : 0;
     right: 0;
     left : 0;
-    background-color: #333;
+    background: linear-gradient(90deg, #34eb67, #0b26b3 60.57%);
     
     color: white;
     max-height: 10vh;
