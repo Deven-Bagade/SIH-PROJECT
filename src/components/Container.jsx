@@ -1,6 +1,6 @@
 import React from 'react';
 import './Container.css'; // Ensure this path is correct
-import logo from '../components/Group_6.png'; // Adjust based on actual extension
+import logo from '../components/Group_6.png'
 
 function Container() {
   return (
