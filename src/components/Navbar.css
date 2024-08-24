@@ -1,46 +1,46 @@
 /* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+  display: flex;
+  justify-content: space-between; /* Space between logo, nav-links, and login button */
+  align-items: center; /* Center items vertically */
+  padding: 0 20px; /* Adjust padding as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #34eb67, #0b26b3 60.57%);
+  color: white;
+  height: 60px; /* Set a fixed height for the navbar */
+}
 
-    padding: 10px 10px;
-    position: fixed;
-    top : 0;
-    right: 0;
-    left : 0;
-    background: linear-gradient(90deg, #34eb67, #0b26b3 60.57%);
-    
-    color: white;
-    max-height: 10vh;
-  }
-  
-  /* Logo on the left side */
-  .logo {
-    margin-top: 75px; 
-    font-weight: bold;
-  }
-  
-  /* Navigation links container */
-  .nav-links {
-    display: flex;
-    gap: 40px;
-  }
-  
-  /* Individual navigation links */
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  /* Login button on the right side */
-  .login-button {
-    background-color: white;
-    color: #333;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+/* Logo on the left side */
+.logo {
+  font-weight: bold;
+  /* Ensure logo is centered vertically by setting margin-top and margin-bottom */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 40px; /* Adjust the gap between links */
+  margin: 0 auto; /* Center nav-links within remaining space */
+}
+
+/* Individual navigation links */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Login button on the right side */
+.login-button {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
