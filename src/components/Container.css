@@ -4,6 +4,8 @@
   flex-direction: column;
   align-items: center;
   padding-top: 60px; /* Ensure this matches the height of the Navbar */
+  padding-left: 20px; /* Add some padding for smaller devices */
+  padding-right: 20px; /* Add some padding for smaller devices */
 }
 
 /* Container for image and buttons */
@@ -12,6 +14,8 @@
   gap: 150px;
   padding: 20px;
   align-items: center; /* Center items vertically if needed */
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+  justify-content: center; /* Center content horizontally */
 }
 
 /* Styling for the image div */
@@ -34,7 +38,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding-left: 0; /* Adjust if needed */
-  position: relative;
 }
 
 /* Rectangular button styling */
@@ -54,4 +57,41 @@
 /* Hover effect for buttons */
 .rect-button:hover {
   background-color: #555;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack the image and buttons vertically */
+    gap: 20px; /* Reduce gap for smaller screens */
+  }
+
+  .buttoncontainer {
+    grid-template-columns: 1fr; /* Change to a single column grid for smaller screens */
+    gap: 10px; /* Adjust gap for smaller screens */
+  }
+
+  .rect-button {
+    width: 100%; /* Make buttons full width for smaller screens */
+    height: auto; /* Adjust button height for better spacing */
+    padding: 15px; /* Adjust padding for better spacing */
+  }
+
+  .imagediv img {
+    max-width: 100%; /* Make image responsive */
+  }
+}
+
+/* Additional Styles for Very Small Screens (Mobile) */
+@media (max-width: 480px) {
+  .parentcontainer {
+    padding-top: 80px; /* Additional space for mobile view */
+    padding-left: 10px; /* Adjust padding for mobile */
+    padding-right: 10px; /* Adjust padding for mobile */
+  }
+
+  .rect-button {
+    font-size: 16px; /* Smaller font size for mobile */
+    padding: 10px; /* Adjust padding for smaller buttons */
+  }
 }
