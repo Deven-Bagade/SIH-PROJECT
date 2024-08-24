@@ -1,0 +1,27 @@
+.about-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Center the content */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark gray for text */
+  }
+  
+  h1, h2 {
+    color: #27a35d; /* Green color for headings */
+    margin-bottom: 10px;
+  }
+  
+  p {
+    line-height: 1.6; /* Better readability */
+    margin-bottom: 20px;
+  }
+  
+  a {
+    color: #2847e2; /* Blue color for links */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

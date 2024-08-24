@@ -1,16 +1,19 @@
 import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar'; 
-import Container from './components/Container';// Correct import for the Navbar component
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Container from './components/Container';
+import About from './components/About'; // Example additional page
 
 function App() {
   return (
-    <div>
+    <BrowserRouter basename="/SIH-PROJECT">
       <Navbar />
-      <Container/>
-
-      {/* Other components */}
-    </div>
+      <Routes>
+        <Route path="/" element={<Container />} />
+        <Route path="/about" element={<About />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

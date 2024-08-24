@@ -1,20 +1,18 @@
 import React from 'react';
-import './Navbar.css'; // Ensure this path is correct relative to Navbar.jsx
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './Navbar.css'; 
 
 function Navbar() {
   return (
     <div className="navbar">
-      {/* Logo on the left side */}
       <span className="logo">MyLogo</span>
       
-      {/* Navigation Links */}
       <div className="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>
+        <Link to="/">Home</Link> 
+        <Link to="/about">About Us</Link>
+        <Link to="/contact">Contact Us</Link> 
       </div>
       
-      {/* Login Button on the right side */}
       <button className="login-button">Login</button>
     </div>
   );
