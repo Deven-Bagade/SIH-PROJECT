@@ -1,0 +1,46 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+    padding: 10px 10px;
+    position: fixed;
+    top : 0;
+    right: 0;
+    left : 0;
+    background-color: #333;
+    
+    color: white;
+    max-height: 10vh;
+  }
+  
+  /* Logo on the left side */
+  .logo {
+    margin-top: 75px; 
+    font-weight: bold;
+  }
+  
+  /* Navigation links container */
+  .nav-links {
+    display: flex;
+    gap: 40px;
+  }
+  
+  /* Individual navigation links */
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Login button on the right side */
+  .login-button {
+    background-color: white;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

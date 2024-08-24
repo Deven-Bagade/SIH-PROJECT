@@ -1,0 +1,48 @@
+/* Container for the two divs */
+.container {
+    display: flex; /* Align child elements in a row */
+    gap: 20px; /* Space between the imagediv and buttoncontainer */
+    padding: 20px;
+  }
+  
+  /* Image div styling */
+  .imagediv {
+    flex: 1; /* Allow this div to grow and take available space */
+    text-align: center;
+  }
+  
+  /* Image styling */
+  .imagediv img {
+    max-width: 100%; /* Responsive image */
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Button container styling */
+  .buttoncontainer {
+    display: grid; /* Use grid layout for buttons */
+    grid-template-columns: repeat(2, 1fr); /* Two columns grid */
+    gap: 10px; /* Space between buttons */
+    flex: 1; /* Allow this div to grow and take available space */
+    align-items: center;
+    justify-items: center;
+  }
+  
+  /* Rectangular button styling */
+  .rect-button {
+    width: 100px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rect-button:hover {
+    background-color: #555; /* Darker background on hover */
+  }
+  
