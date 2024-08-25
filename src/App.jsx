@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Container from './components/Container';
 import About from './components/About'; // Example additional page
+import Sell from './components/Sell';
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Container />} />
         <Route path="/about" element={<About />} />
-        {/* Add more routes as needed */}
+        <Route path="/sell" element={<Sell/>} />
       </Routes>
     </BrowserRouter>
+    
   );
 }
 

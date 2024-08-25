@@ -39,9 +39,10 @@
   gap: 10px;
   padding-left: 0; /* Adjust if needed */
 }
-
-/* Rectangular button styling */
 .rect-button {
+  display: inline-flex; /* Changed to inline-flex to support Flexbox alignment */
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Horizontally centers the content */
   border-radius: 35px;
   background: linear-gradient(106.24deg, #3bd166 34%, #2847e2 100.57%);
   border: 1px solid #716e6e;
@@ -51,13 +52,19 @@
   height: 140px;
   text-align: center;
   font-size: 20px;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif; /* Make sure to add a fallback font */
+  color: white; /* Ensure text is visible on the button background */
+  text-decoration: none; /* Removes underline from links */
+  cursor: pointer; /* Ensures consistent cursor for clickable items */
+  margin: 0 auto; /* Centers the button within its container */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Hover effect for buttons */
 .rect-button:hover {
-  background-color: #555;
+  background-color: #555; /* Hover effect */
+  color: white; /* Ensures text stays visible */
 }
+
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
@@ -71,11 +78,7 @@
     gap: 10px; /* Adjust gap for smaller screens */
   }
 
-  .rect-button {
-    width: 100%; /* Make buttons full width for smaller screens */
-    height: auto; /* Adjust button height for better spacing */
-    padding: 15px; /* Adjust padding for better spacing */
-  }
+ 
 
   .imagediv img {
     max-width: 100%; /* Make image responsive */

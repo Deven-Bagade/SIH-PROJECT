@@ -1,6 +1,8 @@
 import React from 'react';
 import './Container.css'; // Ensure this path is correct
 import logo from '../components/Group_6.png'
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+
 
 function Container() {
   return (
@@ -13,10 +15,10 @@ function Container() {
         </div>
 
         <div className="buttoncontainer">
-          <button className="rect-button">Button 1</button>
-          <button className="rect-button">Button 2</button>
-          <button className="rect-button">Button 3</button>
-          <button className="rect-button">Button 4</button>
+          <button className="rect-button">Registor your Company</button>
+          <Link to="/sell" className='rect-button'>Sell</Link>
+          <button className="rect-button">Leaderboard</button>
+          <button className="rect-button">Guidlines</button>
         </div>
       </div>
       <div>
