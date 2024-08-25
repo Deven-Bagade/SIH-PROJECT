@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Sell.css'
+import './Sell.css';
+import ScrapDiv from './ScrapDiv';
+import SecondHandDiv from './SecondHandDiv';
+import Secondhand from './Secondhand';
 
 function Sell() {
-  // State to hold form input values
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -12,22 +14,62 @@ function Sell() {
     contactInfo: ''
   });
 
-  const [submittedData, setSubmittedData] = useState(null); // State to hold submitted data
-  const locationInputRef = useRef(null); // Reference to the location input field
+  const [secondHandData, setSecondHandData] = useState([]);
+  const [scrapData, setScrapData] = useState([]);
+
+  // Initialize submittedData from localStorage
+  useEffect(() => {
+    const savedSecondHandData = localStorage.getItem('secondHandData');
+    if (savedSecondHandData) {
+      try {
+        const parsedData = JSON.parse(savedSecondHandData);
+        if (Array.isArray(parsedData)) {
+          setSecondHandData(parsedData);
+        } else {
+          console.error('Parsed data is not an array:', parsedData);
+          setSecondHandData([]);
+        }
+      } catch (error) {
+        console.error('Error parsing localStorage data:', error);
+        setSecondHandData([]);
+      }
+    } else {
+      setSecondHandData([]);
+    }
+
+    const savedScrapData = localStorage.getItem('scrapData');
+    if (savedScrapData) {
+      try {
+        const parsedData = JSON.parse(savedScrapData);
+        if (Array.isArray(parsedData)) {
+          setScrapData(parsedData);
+        } else {
+          console.error('Parsed data is not an array:', parsedData);
+          setScrapData([]);
+        }
+      } catch (error) {
+        console.error('Error parsing localStorage data:', error);
+        setScrapData([]);
+      }
+    } else {
+      setScrapData([]);
+    }
+  }, []);
+
+  const locationInputRef = useRef(null);
+  const [showSecondHand, setShowSecondHand] = useState(false);
+  const [showScrap, setShowScrap] = useState(false);
 
   useEffect(() => {
-    // Check if Google Maps API is loaded
     if (!window.google) {
       console.error('Google Maps JavaScript API is not loaded.');
       return;
     }
 
-    // Initialize Google Places Autocomplete when the component mounts
     const autocomplete = new window.google.maps.places.Autocomplete(locationInputRef.current, {
-      types: ['geocode'], // Restrict to geographical location types
+      types: ['geocode'],
     });
 
-    // Add a listener to handle when the user selects an address
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
       if (place && place.formatted_address) {
@@ -40,7 +82,6 @@ function Sell() {
     });
   }, []);
 
-  // Handler to update state on input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -49,28 +90,42 @@ function Sell() {
     });
   };
 
-  // Handler to submit form data
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmittedData(formData); // Set submitted data to formData state
-    console.log('Form Data Submitted:', formData);
+    if (showSecondHand) {
+      const newSecondHandData = [...secondHandData, formData];
+      setSecondHandData(newSecondHandData);
+      localStorage.setItem('secondHandData', JSON.stringify(newSecondHandData));
+    } else if (showScrap) {
+      const newScrapData = [...scrapData, formData];
+      setScrapData(newScrapData);
+      localStorage.setItem('scrapData', JSON.stringify(newScrapData));
+    }
   };
 
-  // Function to get current location using Geolocation API
+  const handleSubmit2ndhand = () => {
+    setShowSecondHand(true);
+    setShowScrap(false);
+  };
+
+  const handleSubmitScrap = () => {
+    setShowScrap(true);
+    setShowSecondHand(false);
+  };
+
   const getCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          console.log('Current Position:', latitude, longitude); // Debugging output
+          console.log('Current Position:', latitude, longitude);
 
           const geocoder = new window.google.maps.Geocoder();
-
           const latlng = { lat: latitude, lng: longitude };
 
           geocoder.geocode({ location: latlng }, (results, status) => {
             if (status === 'OK' && results[0]) {
-              console.log('Geocoded Address:', results[0].formatted_address); // Debugging output
+              console.log('Geocoded Address:', results[0].formatted_address);
               setFormData((prevState) => ({
                 ...prevState,
                 location: results[0].formatted_address,
@@ -92,97 +147,32 @@ function Sell() {
 
   return (
     <div className="sell-page">
-      <h2>Sell Your Product</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Your Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
+      {!showSecondHand && !showScrap && (
+        <div className='2ndhandorscrap'>
+          <h2>Sell Your Product As:</h2>
+          <button type="button" className="submit-button" id='2ndhandproduct' onClick={handleSubmit2ndhand}>2nd Hand</button>
+          <button type="button" className="submit-button" id='scrap' onClick={handleSubmitScrap}>Scrap</button>
+        </div>
+      )}
+
+      {showScrap && (
+        <ScrapDiv
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          getCurrentLocation={getCurrentLocation}
+        />
+      )}
+
+      {showSecondHand && (
+        <>
+          <SecondHandDiv
+            formData={formData}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            getCurrentLocation={getCurrentLocation}
           />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            ref={locationInputRef} // Use ref for the input field
-            value={formData.location}
-            onChange={handleChange}
-            required
-          />
-          <button type="button" onClick={getCurrentLocation} className="current-location-button">
-            Use Current Location
-          </button>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="productName">Product Name:</label>
-          <input
-            type="text"
-            id="productName"
-            name="productName"
-            value={formData.productName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="price">Price:</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="contactInfo">Contact Information:</label>
-          <input
-            type="text"
-            id="contactInfo"
-            name="contactInfo"
-            value={formData.contactInfo}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button type="submit" className="submit-button">Submit</button>
-      </form>
-
-      {/* Display submitted data if available */}
-      {submittedData && (
-        <div className="submitted-data">
-          <h3>Submitted Details</h3>
-          <p><strong>Name:</strong> {submittedData.name}</p>
-          <p><strong>Location:</strong> {submittedData.location}</p>
-          <p><strong>Product Name:</strong> {submittedData.productName}</p>
-          <p><strong>Description:</strong> {submittedData.description}</p>
-          <p><strong>Price:</strong> {submittedData.price}</p>
-          <p><strong>Contact Information:</strong> {submittedData.contactInfo}</p>
-        </div>
+        </>
       )}
     </div>
   );

@@ -17,8 +17,8 @@ function Container() {
         <div className="buttoncontainer">
           <button className="rect-button">Registor your Company</button>
           <Link to="/sell" className='rect-button'>Sell</Link>
-          <button className="rect-button">Leaderboard</button>
-          <button className="rect-button">Guidlines</button>
+          <Link to="/secondhand" className="rect-button">2nd Hand-Market</Link>
+          <button className="rect-button">Community</button>
         </div>
       </div>
       <div>
