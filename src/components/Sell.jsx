@@ -9,6 +9,7 @@ function Sell() {
     name: '',
     location: '',
     productName: '',
+    category: '',
     description: '',
     price: '',
     contactInfo: ''

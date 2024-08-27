@@ -1,4 +1,5 @@
 import React from 'react';
+import './SecondHandDiv.css';
 
 function SecondHandDiv({ formData, handleChange, handleSubmit, getCurrentLocation }) {
   return (
@@ -42,6 +43,27 @@ function SecondHandDiv({ formData, handleChange, handleSubmit, getCurrentLocatio
             required
           />
         </div>
+
+        <div className="categorydiv2">
+  <label htmlFor="category">Category:</label>
+  <select
+    id="category"
+    name="category"
+    value={formData.category}
+    onChange={handleChange}
+    required
+  >
+    <option value="" disabled>Category</option>
+    <option value="laptop">Laptop</option>
+    <option value="smartphone">Smartphone</option>
+    <option value="tablet">Tablet</option>
+    <option value="smartwatch">Smartwatch</option>
+    <option value="camera">Camera</option>
+    <option value="headphones">Headphones</option>
+    <option value="tv">Television</option>
+  </select>
+</div>
+
 
         <div className="form-group">
           <label htmlFor="description">Description:</label>

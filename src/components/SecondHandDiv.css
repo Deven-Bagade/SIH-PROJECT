@@ -1,0 +1,36 @@
+#category {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 150px;
+    background-color: #363636;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Hover and focus effects for the select dropdown */
+  #category:hover,
+  #category:focus {
+    border-color: #007bff; /* Change the color as needed */
+  }
+  
+  #category option {
+    padding: 10px;
+    background-color: #333;
+  }
+  #category label {
+    font-weight: bold;
+    color: #555;
+    font-size: 16px; 
+  }
+  .categorydiv2 {
+    
+    border-radius: 10px;
+     max-width: fit-content;
+     color:#333;
+    padding: 10px;      /* Optional: Add some padding for spacing */
+    border: 1px solid #ccc;    /* Optional: Border for clarity */
+    z-index: 1000;      /* Optional: Ensure it's above other elements */
+  }

@@ -2,6 +2,7 @@
 .sell-page {
     max-width: 700px; /* Slightly wider for more space */
     margin: 50px auto; /* Centered with margin from top */
+    margin-top: 100px;
     padding: 30px;
     background-color: #ffffff82;
     border-radius: 12px;
@@ -9,6 +10,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
     color: #333;
     transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+  
   }
   
   /* Page Title */

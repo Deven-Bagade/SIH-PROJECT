@@ -90,3 +90,37 @@
     transform: scale(1.05);
   }
   
+  #categoryfilter {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 150px;
+    background-color: #363636;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Hover and focus effects for the select dropdown */
+  #categoryfilter:hover,
+  #categoryfilter:focus {
+    border-color: #007bff; /* Change the color as needed */
+  }
+  
+  /* Optional: Style the options within the dropdown */
+  #categoryfilter option {
+    padding: 10px;
+    background-color: #333;
+  }
+  .categorydiv {
+    border-radius: 10px;
+    position:absolute; /* Position relative to the nearest positioned ancestor */
+    top: 100px;             /* Align to the top */
+    left: 0px;    
+    background-color: #0091ff;      
+    padding: 10px;      /* Optional: Add some padding for spacing */
+    border: 1px solid #ccc;    /* Optional: Border for clarity */
+    z-index: 1000;      /* Optional: Ensure it's above other elements */
+  }
+  

@@ -1,4 +1,4 @@
-/* Navbar container */
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between; /* Space between logo, nav-links, and login button */
@@ -10,37 +10,141 @@
   right: 0;
   background: linear-gradient(90deg, #34eb67, #0b26b3 60.57%);
   color: white;
-  height: 60px; /* Set a fixed height for the navbar */
+  height: 90px; /* Set a fixed height for the navbar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better visual separation */
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
-/* Logo on the left side */
+.navbar .toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 .logo {
   font-weight: bold;
-  /* Ensure logo is centered vertically by setting margin-top and margin-bottom */
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
-/* Navigation links container */
-.nav-links {
+.navbar .nav-links {
   display: flex;
-  gap: 40px; /* Adjust the gap between links */
-  margin: 0 auto; /* Center nav-links within remaining space */
+  gap: 1rem; /* Use gap for spacing between links */
 }
 
-/* Individual navigation links */
-.nav-links a {
+.navbar .nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  transition: color 0.3s;
 }
 
-/* Login button on the right side */
-.login-button {
-  background-color: white;
-  color: #333;
+.navbar .nav-links a:hover {
+  color: #007bff;
+}
+
+.navbar .login-button {
+  background-color: #007bff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  color: white;
+  padding: 0.5rem 1rem;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navbar .login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+/* Close Button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .navbar {
+    height:100px; /* Remove fixed height */
+    padding: 0 10px;
+  }
+  
+  .navbar .toggle {
+    display: block; /* Show the toggle button */
+    z-index:1002;
+    color:rgb(255, 255, 255);
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0px;
+    left: -250px; /* Hide menu off-screen initially */
+    height: 100vh; /* Full viewport height */
+    width: 250px; /* Adjust width as needed */
+    background: rgba(255, 255, 255, 0.563);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease; /* Smooth sliding effect */
+    z-index: 1001; /* Ensure it is above other content */
+  }  
+  .nav-links.visible {
+    left: 0; /* Slide in the menu */
+  }
+  
+  .nav-links a {
+    color: #070707 !important; 
+    margin: 0.5rem 0; 
+  }
+  
+  .navbar .login-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .modal {
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .close-modal {
+    font-size: 1.25rem;
+  }
 }
