@@ -55,7 +55,7 @@
   /* Focus States */
   .form-group input:focus,
   .form-group textarea:focus {
-    border-color: #28a745; /* Green border on focus */
+    border-color: #1d3e2f; /* Green border on focus */
     box-shadow: 0 0 8px rgba(40, 167, 69, 0.2); /* Shadow effect on focus */
     outline: none;
   }
@@ -69,7 +69,7 @@
   /* Current Location Button */
   .current-location-button {
     margin-top: 10px;
-    background-color: #007bff;
+    background-color: #1d3e2f;
     color: white;
     border: none;
     padding: 12px 20px; /* More padding for a better click area */
@@ -82,7 +82,7 @@
   
   /* Hover Effect for Current Location Button */
   .current-location-button:hover {
-    background-color: #0056b3;
+    background-color: #1d3e2f;
     transform: translateY(-2px); /* Slight lift effect on hover */
   }
   
@@ -91,7 +91,7 @@
     display: block;
     width: 100%;
     padding: 14px;
-    background-color: #28a745;
+    background-color: #1d3e2f;
     color: white;
     border: none;
     border-radius: 6px;
@@ -104,12 +104,12 @@
   
   /* Hover and Active States for Submit Button */
   .submit-button:hover {
-    background-color: #218838;
+    background-color: #1d3e2f;
     transform: translateY(-2px); /* Slight lift effect on hover */
   }
   
   .submit-button:active {
-    background-color: #1e7e34;
+    background-color: #1d3e2f;
     transform: translateY(0);
   }
   

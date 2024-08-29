@@ -48,7 +48,7 @@ function Secondhand({ secondHandData }) {
               <div className="product-details">
                 <div className="product-name">{data.productName}</div>
                 <div className="product-description">{data.description}</div>
-                <div className="product-price">${data.price}</div>
+                <div className="product-price">₹{data.price}</div>
                 <div className="product-contact">Contact: {data.contactInfo}</div>
                 <button className="product-button">More Details</button>
               </div>

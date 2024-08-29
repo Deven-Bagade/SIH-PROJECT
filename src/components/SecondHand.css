@@ -75,7 +75,7 @@
     display: block;
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #1d3e2f;
     color: #fff;
     text-align: center;
     border: none;
@@ -86,7 +86,7 @@
   }
   
   .product-button:hover {
-    background-color: #0056b3;
+    background-color: #1d3e2f;
     transform: scale(1.05);
   }
   
@@ -105,7 +105,7 @@
   /* Hover and focus effects for the select dropdown */
   #categoryfilter:hover,
   #categoryfilter:focus {
-    border-color: #007bff; /* Change the color as needed */
+    border-color: #1d3e2f; /* Change the color as needed */
   }
   
   /* Optional: Style the options within the dropdown */
@@ -118,7 +118,7 @@
     position:absolute; /* Position relative to the nearest positioned ancestor */
     top: 100px;             /* Align to the top */
     left: 0px;    
-    background-color: #0091ff;      
+    background-color: #1d3e2f;      
     padding: 10px;      /* Optional: Add some padding for spacing */
     border: 1px solid #ccc;    /* Optional: Border for clarity */
     z-index: 1000;      /* Optional: Ensure it's above other elements */

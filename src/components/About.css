@@ -7,7 +7,8 @@
   }
   
   h1, h2 {
-    color: #27a35d; /* Green color for headings */
+    color: #1d3e2f;
+    ; /* Green color for headings */
     margin-bottom: 10px;
   }
   
@@ -17,7 +18,7 @@
   }
   
   a {
-    color: #2847e2; /* Blue color for links */
+    color: #1d3e2f; /* Blue color for links */
     text-decoration: none;
   }
   

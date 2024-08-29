@@ -13,7 +13,7 @@
   /* Hover and focus effects for the select dropdown */
   #category:hover,
   #category:focus {
-    border-color: #007bff; /* Change the color as needed */
+    border-color: #1d3e2f; /* Change the color as needed */
   }
   
   #category option {

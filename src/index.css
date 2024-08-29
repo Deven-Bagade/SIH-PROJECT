@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(145deg, #cde0d3 24%, #27a35d 100.57%); /* Background gradient for :root */
+  background: #FBFFF1; /* Background gradient for :root */
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -38,7 +38,7 @@ a:hover {
 h1 {
   font-size: 2em;
   line-height: 1.1;
-  color: rgb(12, 172, 12);
+  color: #1d3e2f;
 }
 
 button {
