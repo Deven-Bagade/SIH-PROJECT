@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css'; // Make sure to create this CSS file for styling
+import './About.css'; 
 
 function About() {
   return (

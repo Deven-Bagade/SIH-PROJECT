@@ -1,7 +1,7 @@
 import React from 'react';
 import './Container.css'; // Ensure this path is correct
 import logo from '../components/Group_6.png'
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 
 
 function Container() {
@@ -16,9 +16,10 @@ function Container() {
 
         <div className="buttoncontainer">
           <button className="rect-button">Registor your Company</button>
-          <Link to="/sell" className='rect-button'>Sell</Link>
+          <Link to="/sell" className='rect-button'>Sell/Dispose</Link>
           <Link to="/secondhand" className="rect-button">2nd Hand-Market</Link>
-          <button className="rect-button">Community</button>
+          <Link to="/collect" className="rect-button">Collect</Link>
+
         </div>
       </div>
       <div>

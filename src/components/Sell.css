@@ -140,3 +140,36 @@
     line-height: 1.6; /* Improved line spacing for readability */
   }
   
+ /* Add this to Sell.css or the relevant CSS file */
+
+/* Button Container */
+.category-buttons-container {
+  margin-bottom: 5vh;
+  display: flex;
+  flex-wrap: wrap; /* Ensure buttons are in a row */
+}
+
+/* Button Styles */
+.category-button {
+  margin-top: 20vh;
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #cdd5c1;
+  color: #1d3e2f; /* Ensure text color is visible */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Button Hover Effect */
+.category-button:hover {
+  background-color: gray; /* Lighter color for hover effect */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active Button State */
+.category-button.active {
+  background-color: gray;
+  color: #fff;
+}

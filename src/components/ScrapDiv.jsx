@@ -54,13 +54,33 @@ function ScrapDiv({ formData, handleChange, handleSubmit, getCurrentLocation }) 
           ></textarea>
         </div>
 
+        <div className="categorydiv2">
+  <label htmlFor="category">Category:</label>
+  <select
+    id="category"
+    name="category"
+    value={formData.category}
+    onChange={handleChange}
+    required
+  >
+    <option value="" disabled>Category</option>
+    <option value="wetwaste">Wet Waste</option>
+    <option value="plastic">Plastic</option>
+    <option value="paper">Paper</option>
+    <option value="glass">Glass</option>
+    <option value="metal">Metal</option>
+    <option value="wood">Wood</option>
+    <option value="e-waste">E-waste</option>
+  </select>
+</div>
+
         <div className="form-group">
-          <label htmlFor="price">Price:</label>
+          <label htmlFor="weight">Weight</label>
           <input
             type="number"
-            id="price"
-            name="price"
-            value={formData.price}
+            id="weight"
+            name="weight"
+            value={formData.weight}
             onChange={handleChange}
             required
           />
