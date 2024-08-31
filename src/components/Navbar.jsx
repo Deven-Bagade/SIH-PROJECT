@@ -39,6 +39,8 @@ function Navbar() {
       <div className={`nav-links ${isNavVisible ? 'visible' : 'hidden'}`}>
       <Link to="/">Home</Link> 
         <Link to="/about">About Us</Link>
+        <Link to="/news">News</Link>
+
         <Link to="/leaderboard">Leaderboard</Link>
         <Link to="/contact">Contact Us</Link>
       </div>

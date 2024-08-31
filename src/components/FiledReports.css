@@ -1,0 +1,40 @@
+
+.filed-reports-container {
+  position: relative;
+  top:20vh;
+    padding: 2px;
+    max-width: 100vh;
+    margin: 0 auto;
+    min-width: 10vh;
+  }
+  
+  /* Heading styling */
+  .filed-reports-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* List styling */
+  .report-list {
+
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .report-item {
+   color: #1d3e2f;
+    background-color: #cdd5c1;
+
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .report-item h2 {
+    margin-top: 0;
+  }
+  
+  .report-item p {
+    margin: 5px 0;
+  }
+  

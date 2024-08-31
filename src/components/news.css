@@ -1,0 +1,80 @@
+
+
+.card-container {
+    margin-top: 18vh;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.card-title {
+    font-size: 1.2em; /* Reduced size for a smaller heading */
+    margin-bottom: 10px;
+    color: #007BFF; /* Added color for better visibility */
+    text-align: center;
+}
+
+.summary h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.read-more-btn {
+    margin: 10px 0 0;
+    padding: 8px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start; /* Aligns button to the left */
+    text-align: center;
+}
+
+.read-more-btn:hover {
+    background-color: #4392e6;
+}
+
+/* Ensure that the more-content class is shown or hidden based on the isOpen state */
+.more-content {
+    margin-top: 10px;
+}

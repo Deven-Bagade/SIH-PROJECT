@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Sell.css';
 import ScrapDiv from './ScrapDiv';
 import SecondHandDiv from './SecondHandDiv';
-import Secondhand from './Secondhand';
+import Incentives from './Incentives';
+import Leaderboard from './Leaderboard'; // Import Leaderboard component
 
 function Sell() {
   const [formData, setFormData] = useState({
@@ -12,14 +13,15 @@ function Sell() {
     category: '',
     description: '',
     price: '',
-    weight:'',
+    weight: '',
     contactInfo: ''
   });
 
   const [secondHandData, setSecondHandData] = useState([]);
   const [scrapData, setScrapData] = useState([]);
+  const [userPoints, setUserPoints] = useState({});
 
-  // Initialize submittedData from localStorage
+  // Initialize data from localStorage
   useEffect(() => {
     const savedSecondHandData = localStorage.getItem('secondHandData');
     if (savedSecondHandData) {
@@ -28,15 +30,11 @@ function Sell() {
         if (Array.isArray(parsedData)) {
           setSecondHandData(parsedData);
         } else {
-          console.error('Parsed data is not an array:', parsedData);
-          setSecondHandData([]);
+          console.error('Parsed secondHandData is not an array:', parsedData);
         }
       } catch (error) {
-        console.error('Error parsing localStorage data:', error);
-        setSecondHandData([]);
+        console.error('Error parsing secondHandData from localStorage:', error);
       }
-    } else {
-      setSecondHandData([]);
     }
 
     const savedScrapData = localStorage.getItem('scrapData');
@@ -46,17 +44,34 @@ function Sell() {
         if (Array.isArray(parsedData)) {
           setScrapData(parsedData);
         } else {
-          console.error('Parsed data is not an array:', parsedData);
-          setScrapData([]);
+          console.error('Parsed scrapData is not an array:', parsedData);
         }
       } catch (error) {
-        console.error('Error parsing localStorage data:', error);
-        setScrapData([]);
+        console.error('Error parsing scrapData from localStorage:', error);
       }
-    } else {
-      setScrapData([]);
+    }
+
+    const savedUserPoints = localStorage.getItem('userPoints');
+    if (savedUserPoints) {
+      try {
+        const parsedPoints = JSON.parse(savedUserPoints);
+        if (parsedPoints && typeof parsedPoints === 'object') {
+          setUserPoints(parsedPoints);
+        } else {
+          console.error('Parsed userPoints is not an object:', parsedPoints);
+        }
+      } catch (error) {
+        console.error('Error parsing userPoints from localStorage:', error);
+      }
     }
   }, []);
+
+  // Save userPoints to localStorage whenever they change
+  useEffect(() => {
+    if (Object.keys(userPoints).length > 0) {
+      localStorage.setItem('userPoints', JSON.stringify(userPoints));
+    }
+  }, [userPoints]);
 
   const locationInputRef = useRef(null);
   const [showSecondHand, setShowSecondHand] = useState(false);
@@ -94,6 +109,17 @@ function Sell() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const points = showSecondHand ? 14 : showScrap ? 7 : 0;
+
+    setUserPoints(prevPoints => {
+      const currentPoints = prevPoints[formData.name] || 0;
+      return {
+        ...prevPoints,
+        [formData.name]: currentPoints + points,
+      };
+    });
+
     if (showSecondHand) {
       const newSecondHandData = [...secondHandData, formData];
       setSecondHandData(newSecondHandData);
@@ -167,15 +193,15 @@ function Sell() {
       )}
 
       {showSecondHand && (
-        <>
-          <SecondHandDiv
-            formData={formData}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            getCurrentLocation={getCurrentLocation}
-          />
-        </>
+        <SecondHandDiv
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          getCurrentLocation={getCurrentLocation}
+        />
       )}
+
+      
     </div>
   );
 }

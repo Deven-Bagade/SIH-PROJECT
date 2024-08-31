@@ -99,3 +99,51 @@
     padding: 10px; /* Adjust padding for smaller buttons */
   }
 }
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: 15vh;
+  justify-content: space-between;
+  background-color: #FBFFF1;
+}
+
+.left-image {
+  margin-left: 20px;
+  width: 400px;
+  height: 320px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.right-text {
+  margin-left: 20px;
+  flex: 1;
+}
+
+.right-text h1 {
+  font-size: 6vh;
+  margin-bottom: 15px;
+  animation: fadeUp 1s ease-out;
+}
+
+.right-text p {
+  font-size: 3vh;
+  color: #030303;
+  opacity: 0; 
+  animation: fadeUp 1s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
