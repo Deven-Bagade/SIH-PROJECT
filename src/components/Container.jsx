@@ -31,10 +31,10 @@ function Container() {
         </div>
 
         <div className="buttoncontainer">
-          <button className="rect-button">Registor your Company</button>
+          <button className="rect-button">Rapid Disposal Service</button>
           <Link to="/sell" className='rect-button'>Sell/Dispose</Link>
           <Link to="/secondhand" className="rect-button">2nd Hand-Market</Link>
-          <Link to="/collect" className="rect-button">Collect</Link>
+          <Link to="/collect" className="rect-button">Sanitization</Link>
 
         </div>
         <div>

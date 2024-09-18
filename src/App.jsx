@@ -13,7 +13,7 @@ import FRep from './components/FiledReports';
 
 function App() {
   const [userPoints, setUserPoints] = useState({});
-
+  
   useEffect(() => {
     // Dynamically load chatbot scripts
     const script1 = document.createElement('script');
@@ -26,6 +26,13 @@ function App() {
     script2.async = true;
     document.body.appendChild(script2);
 
+    script2.onload = () => {
+      // Initialize the chatbot if necessary
+      if (window.BotpressWebchat) {
+        window.BotpressWebchat.init();
+      }
+    };
+
     // Clean up function to remove scripts
     return () => {
       document.body.removeChild(script1);
@@ -33,6 +40,8 @@ function App() {
     };
   }, []); 
 
+
+ 
   // Initialize data from localStorage
   useEffect(() => {
     const savedUserPoints = localStorage.getItem('userPoints');

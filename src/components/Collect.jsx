@@ -39,7 +39,10 @@ function Collect({ scrapData }) {
                 <div className="product-description">{scrapItem.description}</div>
                 <div className="product-weight">Weight: {scrapItem.weight}</div>
                 <div className="product-category">Category: {scrapItem.category}</div>
+                <div className="product-contact">Location: {scrapItem.location}</div>
+
                 <div className="product-contact">Contact: {scrapItem.contactInfo}</div>
+
               </div>
             </div>
           ))}

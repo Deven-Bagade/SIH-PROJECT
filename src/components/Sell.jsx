@@ -177,7 +177,7 @@ function Sell() {
     <div className="sell-page">
       {!showSecondHand && !showScrap && (
         <div className='2ndhandorscrap'>
-          <h2>Sell Your Product As:</h2>
+          <h2>Choose an Option</h2>
           <button type="button" className="submit-button" id='2ndhandproduct' onClick={handleSubmit2ndhand}>2nd Hand</button>
           <button type="button" className="submit-button" id='scrap' onClick={handleSubmitScrap}>Dispose</button>
         </div>
